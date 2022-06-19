@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <nav id="navbar">
+    <header><h1>CSS documentation</h1></header>
+    <div id="nav-link-container">
+      <a class="nav-link" href="#Introduction">Introduction to CSS</a>
+      <a class="nav-link" href="#What_is_CSS_for?">What is CSS for?</a>
+      <a class="nav-link" href="#CSS_syntax">CSS syntax</a>
+      <a class="nav-link" href="#Adding_CSS_to_our_document">Adding CSS to our document</a>
+      <a class="nav-link" href="#Styling_HTML_elements">Styling HTML elements</a>
+      <a class="nav-link" href="#Changing_the_default_behavior_of_elements">Changing the default behavior of elements</a>
+      <a class="nav-link" href="#Adding_a_class">Adding a class</a>
+    </div>
+  </nav>
+  <main id="main-doc">
+    <section id="Introduction" class="main-section">
+      <header><h2>Introduction to CSS</h2></header>
+      <p>CSS (Cascading Style Sheets) allows you to create great-looking web pages, but how does it work under the hood? This article explains what CSS is, with a simple syntax example, and also covers some key terms about the language.</p>
+      <p>Documents will be readable in a web browser. Headings will look larger than regular text, paragraphs break onto a new line and have space between them. Links are colored and underlined to distinguish them from the rest of the text. What you are seeing is the browser's default styles — very basic styles that the browser applies to HTML to make sure it will be basically readable even if no explicit styling is specified by the author of the page.</p>
+    </section>
+    <section id="What_is_CSS_for?" class="main-section">
+      <header><h2>What is CSS for?</h2></header>
+      <p>As we have mentioned before, CSS is a language for specifying how documents are presented to users — how they are styled, laid out, etc.</p>
+      <ul>
+        <li>A document is usually a text file structured using a markup language — HTML is the most common markup language, but you may also come across other markup languages such as SVG or XML.</li>
+        <li>Presenting a document to a user means converting it into a form usable by your audience. Browsers, like Firefox, Chrome, or Edge , are designed to present documents visually, for example, on a computer screen, projector or printer.</li>
+      </ul>
+    </section>
+    <section id="CSS_syntax" class="main-section">
+      <header><h2>CSS syntax</h2></header>
+      <p>CSS is a rule-based language — you define rules specifying groups of styles that should be applied to particular elements or groups of elements on your web page. For example "I want the main heading on my page to be shown as large red text."</p>
+      <p>The following code shows a very simple CSS rule that would achieve the styling described above:</p>
+      <code>h1 {
+    color: red;
+    font-size: 5em;
+}</code>
+      <p>A CSS stylesheet will contain many such rules, written one after the other.</p>
+      <code>h1 {
+    color: red;
+    font-size: 5em;
+}
+
+p {
+    color: black;
+}</code>
+    </section>
+    <section id="Adding_CSS_to_our_document" class="main-section">
+      <header><h2>Adding CSS to our document</h2></header>
+      <p>The very first thing we need to do is to tell the HTML document that we have some CSS rules we want it to use. There are three different ways to apply CSS to an HTML document that you'll commonly come across, however, for now, we will look at the most usual and useful way of doing so — linking CSS from the head of your document.
+      <ul>
+        <li>Create a file in the same folder as your HTML document and save it as styles.css. The .css extension shows that this is a CSS file.</li>
+        <li>To link styles.css to index.html add the following line somewhere inside the &#60;head&#62; of the HTML document:</li>
+      </ul>
+    <code>&#60;link rel="stylesheet" href="styles.css"&#62;</code>
+    <section id="Styling_HTML_elements" class="main-section">
+      <header><h2>Styling HTML elements</h2></header>
+      <p>By making our heading red we have already demonstrated that we can target and style an HTML element. We do this by targeting an element selector — this is a selector that directly matches an HTML element name. To target all paragraphs in the document you would use the selector p. To turn all paragraphs green you would use:</p>
+      <code>p {
+  color: green;
+}</code>
+      <p>You can target multiple selectors at once, by separating the selectors with a comma. If I want all paragraphs and all list items to be green my rule looks like this:</p>
+      <code>p, li {
+    color: green;
+}</code>
+    </section>
+    <section id="Changing_the_default_behavior_of_elements" class="main-section">
+      <header><h2>Changing the default behavior of elements</h2></header>
+      <p>When we look at a well-marked up HTML document, even something as simple as our example, we can see how the browser is making the HTML readable by adding some default styling. Headings are large and bold and our list has bullets.</p>
+      <ul>
+        <li>This happens because browsers have internal stylesheets containing default styles, which they apply to all pages by default; without them all of the text would run together in a clump and we would have to style everything from scratch. All modern browsers display HTML content by default in pretty much the same way.</li>
+        <li>However, you will often want something other than the choice the browser has made. This can be done by choosing the HTML element that you want to change, and using a CSS rule to change the way it looks. A good example is our &#60;ul&#62;, an unordered list. It has list bullets, and if I decide I don't want those bullets I can remove them like so:</li>
+      </ul>
+      <code>li {
+  list-style-type: none;
+}</code>
+    </section>
+    <section id="Adding_a_class" class="main-section">
+      <header><h2>Adding a class</h2></header>
+      <p>So far we have styled elements based on their HTML element names. This works as long as you want all of the elements of that type in your document to look the same. Most of the time that isn't the case and so you will need to find a way to select a subset of the elements without changing the others. The most common way to do this is to add a class to your HTML element and target that class.</p>
+      <li>In your HTML document, add a class attribute to the second list item. Your list will now look like this:</li>
+      <code>&#60;ul>
+  &#60;li>Item one&#60;/li>
+  &#60;li class="special">Item two&#60;/li>
+  &#60;li>Item &#60;em>three&#60;/em>&#60;/li>
+&#60;/ul>
+</code>
+      <li>In your CSS you can target the class of special by creating a selector that starts with a full stop character. Add the following to your CSS file:</li>
+      <code>.special {
+  color: orange;
+  font-weight: bold;
+}</code>
+    </section>
+  </main>
+
+  <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+  <script src="https://kit.fontawesome.com/a21f1ea1b6.js" crossorigin="anonymous"></script>
+</body>
+</html>
